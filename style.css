@@ -183,7 +183,7 @@ ul{
 }
 .right-arrow{
   position: absolute;
-  top: 33%;
+  top: 20%;
   left: 65%;
   display: inline-block;
   width: 35px;
@@ -193,7 +193,7 @@ ul{
 }
 .left-arrow{
   position: absolute;
-  top: 33%;
+  top: 20%;
   left: 29.5%;
   cursor: pointer;
   display: inline-block;
