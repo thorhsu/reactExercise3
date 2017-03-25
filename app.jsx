@@ -97,6 +97,11 @@ var ImgThumb = React.createClass({
 });
 
 var ImageList = React.createClass({
+  getInitialState: function() {
+    return {
+      timer: null
+    };
+  },
   setCurrentIdPlus: function(){
      var currentId = (parseInt(this.props.currentId) + 1) % this.props.data.length;
      this.props.setCurrentId(currentId);
@@ -106,6 +111,10 @@ var ImageList = React.createClass({
      if(currentId < 0)
         currentId = this.props.data.length - 1;
      this.props.setCurrentId(currentId);
+  },
+  componentDidMount: function(){
+    var timer = setInterval(this.setCurrentIdPlus, 10000);
+    this.state.timer = timer;
   },
   render: function() {
     var self = this;
@@ -136,8 +145,10 @@ var Image = React.createClass({
     var className = cx({
       'img': true,
       'active': this.props.data.id === this.props.currentId,
-      'left':  this.props.data.id < this.props.currentId && (this.props.currentId != this.props.dataSet.length - 1 || this.props.data.id != 0),
-      'right': this.props.data.id > this.props.currentId && (this.props.currentId != 0 || this.props.data.id != this.props.dataSet.length - 1)
+      'left':  this.props.data.id < this.props.currentId
+          && (this.props.currentId != this.props.dataSet.length - 1 || this.props.data.id != 0),
+      'right': this.props.data.id > this.props.currentId
+          && (this.props.currentId != 0 || this.props.data.id != this.props.dataSet.length - 1)
     });
     if(this.props.currentId == this.props.dataSet.length - 1 && this.props.data.id == 0)
        className += " right";
