@@ -116,6 +116,11 @@ var ImageList = React.createClass({
     var timer = setInterval(this.setCurrentIdPlus, 10000);
     this.state.timer = timer;
   },
+  componentDidUpdate: function(){
+    clearInterval(this.state.timer);
+    var timer = setInterval(this.setCurrentIdPlus, 10000);
+    this.state.timer = timer;
+  },
   render: function() {
     var self = this;
     return (
