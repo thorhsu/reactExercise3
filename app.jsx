@@ -39,11 +39,15 @@ var App = React.createClass({
     this.setState({currentId:id});
   },
   render: function() {
+    var navbar = "";
+    if(this.props.navbar){
+      navbar = <Nav data={this.state.data} currentId={this.state.currentId} setCurrentId={this.setCurrentId}/>;
+    }
     return (
       <div id="app" >
         <div id="container">
-           <ImageList data={this.state.data} currentId={this.state.currentId} setCurrentId={this.setCurrentId}/>
-           <Nav data={this.state.data} currentId={this.state.currentId} setCurrentId={this.setCurrentId}/>
+           <ImageList data={this.state.data} loop={this.props.loop} currentId={this.state.currentId} setCurrentId={this.setCurrentId}/>
+           {navbar}
         </div>
       </div>
     );
@@ -123,11 +127,26 @@ var ImageList = React.createClass({
   },
   render: function() {
     var self = this;
+    var rightArrow = (
+            <div className="right-arrow">
+               <i className="fa fa-angle-right fa-lg" aria-hidden="true" onClick={self.setCurrentIdPlus}></i>
+            </div>);
+    var leftArrow = (
+            <div className="left-arrow">
+              <i className="fa fa-angle-left fa-lg" aria-hidden="true" onClick={self.setCurrentIdMinus}></i>
+            </div>
+    );
+    if(!this.props.loop){
+      if(this.props.currentId == this.props.data.length - 1){
+        rightArrow = "";
+      }
+      if(this.props.currentId == 0){
+        leftArrow = "";
+      }
+    }
     return (
       <div className="center">
-        <div className="left-arrow">
-           <i className="fa fa-angle-left fa-lg" aria-hidden="true" onClick={self.setCurrentIdMinus}></i>
-        </div>
+        {leftArrow}
         {
            this.props.data.map(
              function(imgData, index){
@@ -136,9 +155,7 @@ var ImageList = React.createClass({
                 );
              })
         }
-        <div className="right-arrow">
-           <i className="fa fa-angle-right fa-lg" aria-hidden="true" onClick={self.setCurrentIdPlus}></i>
-        </div>
+        {rightArrow}
     </div>
     );
   }
@@ -169,6 +186,6 @@ var Image = React.createClass({
 
 
 ReactDOM.render(
-  <App url="./api/imgData.json" title="My photo rotator"/>,
+  <App url="./api/imgData.json" title="My photo rotator" loop={true} navbar={true} />,
   document.getElementById('content')
 );
