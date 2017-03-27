@@ -139,7 +139,6 @@ ul{
     position: absolute;;
     width: 550px;
     opacity: 0;
-    display:inline-block;
     visibility: hidden;
 }
 

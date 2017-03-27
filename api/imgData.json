@@ -1,10 +1,10 @@
 [
-    {"id": 1, "src":"./images/children/0.jpg"},
-    {"id": 2, "src":"./images/children/1.jpg"},
-    {"id": 3, "src":"./images/children/2.jpg"},
-    {"id": 4, "src":"./images/children/3.jpg"},
-    {"id": 5, "src":"./images/children/4.jpg"},
-    {"id": 6, "src":"./images/children/5.jpg"},
-    {"id": 7, "src":"./images/children/6.jpg"},
-    {"id": 8, "src":"./images/children/7.jpg"}
+    {"id": 0, "src":"./images/children/0.jpg"},
+    {"id": 1, "src":"./images/children/1.jpg"},
+    {"id": 2, "src":"./images/children/2.jpg"},
+    {"id": 3, "src":"./images/children/3.jpg"},
+    {"id": 4, "src":"./images/children/4.jpg"},
+    {"id": 5, "src":"./images/children/5.jpg"},
+    {"id": 6, "src":"./images/children/6.jpg"},
+    {"id": 7, "src":"./images/children/7.jpg"}
 ]
