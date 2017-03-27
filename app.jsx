@@ -26,7 +26,6 @@ var App = React.createClass({
     this.setState({data: data});
   },
   componentDidMount: function(){
-
     // $.getJSON(this.props.url, function(data){
     //
     // }).always(this.setData);
@@ -90,7 +89,6 @@ var ImgThumb = React.createClass({
     var cn = "imgThumb";
 
     if(this.props.currentId == this.state.data.id){
-      console.log(this.props.currentId + "|||" + this.state.data.id);
       cn += " active";
     }
     var self = this;
