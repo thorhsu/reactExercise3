@@ -8,32 +8,18 @@ function cx(obj){
 var App = React.createClass({
   getInitialState: function() {
     return {
-      data:[
-          {id: 0, "src":"./images/children/0.jpg"},
-          {id: 1, "src":"./images/children/1.jpg"},
-          {id: 2, "src":"./images/children/2.jpg"},
-          {id: 3, "src":"./images/children/3.jpg"},
-          {id: 4, "src":"./images/children/4.jpg"},
-          {id: 5, "src":"./images/children/5.jpg"},
-          {id: 6, "src":"./images/children/6.jpg"},
-          {id: 7, "src":"./images/children/7.jpg"}
-      ]
-      ,
+      data:[],
       currentId: 0
     };
   },
-  setCurrentId: function(data){
-    this.setState({data: data});
-  },
   componentDidMount: function(){
-
-    // $.getJSON(this.props.url, function(data){
-    //
-    // }).always(this.setData);
+     var self = this;
+     $.getJSON(this.props.url, function(data){
+        self.setData(data);
+     });
   },
-  setData(data){
-//    console.log(data.responseText);
-    this.setState({data:data.responseText});
+  setData: function(data){
+    this.setState({data:data});
   },
   setCurrentId:function(id){
     this.setState({currentId:id});
@@ -90,7 +76,6 @@ var ImgThumb = React.createClass({
     var cn = "imgThumb";
 
     if(this.props.currentId == this.state.data.id){
-      console.log(this.props.currentId + "|||" + this.state.data.id);
       cn += " active";
     }
     var self = this;

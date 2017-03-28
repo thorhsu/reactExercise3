@@ -138,10 +138,7 @@ ul{
 .img {
     position: absolute;;
     width: 550px;
-    height: 160px;
-    left: 31.5%;
     opacity: 0;
-    display:inline-block;
     visibility: hidden;
 }
 
@@ -155,6 +152,8 @@ ul{
   visibility: visible;
   display: inline-block;
   position:absolute;
+  text-align: center;
+  margin-left: -275px;
   transition: opacity 1s, transform .3s;
 }
 .img.left{
@@ -183,18 +182,16 @@ ul{
 }
 .right-arrow{
   position: absolute;
-  top: 20%;
-  left: 65%;
+  top: 160px;
+  left: 71%;
   display: inline-block;
-  width: 35px;
-  margin-left: 80px;
   cursor: pointer;
   z-index: 2;
 }
 .left-arrow{
   position: absolute;
-  top: 20%;
-  left: 29.5%;
+  top: 160px;
+  left: 29%;
   cursor: pointer;
   display: inline-block;
   z-index: 2;
