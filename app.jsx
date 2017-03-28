@@ -186,6 +186,6 @@ var Image = React.createClass({
 
 
 ReactDOM.render(
-  <App url="./api/imgData.json" title="My photo rotator" loop={true} navbar={true} />,
+  <App url="./api/imgData.json" title="My photo rotator" loop={false} navbar={true} />,
   document.getElementById('content')
 );
